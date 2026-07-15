@@ -1,166 +1,237 @@
-:root{
-    --green:#ADEBB3;
-    --salmon:#FF857A;
-    --pink:#EBAEE6;
-    --brown:#6B403C;
-}
+/* ==========================
+   Scroll Progress Bar
+========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050505;
-    color:white;
-    overflow-x:hidden;
-    font-family:'Ndot 47',sans-serif;
-}
-
-.background{
-    position:fixed;
-    inset:0;
-
-    background:
-    radial-gradient(circle at 20% 20%, rgba(173,235,179,.15), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(235,174,230,.15), transparent 40%),
-    radial-gradient(circle at 60% 80%, rgba(255,133,122,.15), transparent 40%);
-
-    z-index:-2;
-}
-
-nav{
+#progress-container{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
-    padding:25px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter:blur(20px);
-    z-index:1000;
+    height:4px;
+    z-index:9999;
 }
 
-.logo{
-    font-family:'Ndot 47',sans-serif;
-    font-size:1.2rem;
-    letter-spacing:6px;
-    color:white;
+#progress-bar{
+    width:0%;
+    height:100%;
+    background:var(--green);
 }
 
-nav ul{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
+/* ==========================
+   Projektkarten
+========================== */
 
-nav a{
+.project{
+    height:500px;
+    border-radius:40px;
+    overflow:hidden;
     text-decoration:none;
     color:white;
+    transition:.4s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+}
+
+.weather{
+    background:linear-gradient(
+    145deg,
+    #3553ff,
+    #14274e);
+}
+
+.calc{
+    background:linear-gradient(
+    145deg,
+    #4caf50,
+    #163b30);
+}
+
+.navtool{
+    background:linear-gradient(
+    145deg,
+    #FF857A,
+    #6B403C);
+}
+
+.icon{
+    font-size:5rem;
+    text-align:center;
+    margin-top:140px;
+}
+
+.project h3{
+    background:#101820;
+    padding:40px;
+    font-size:3rem;
+    text-align:center;
+    font-family:'Ndot 47',sans-serif;
+}
+
+/* ==========================
+   Forschung
+========================== */
+
+.research-card{
+    background:linear-gradient(
+    145deg,
+    rgba(235,174,230,.15),
+    rgba(107,64,60,.15));
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:40px;
+    border-radius:32px;
+
+    backdrop-filter:blur(20px);
+}
+
+.research-card h3{
+    margin-bottom:20px;
+    color:var(--pink);
+    font-size:2rem;
+}
+
+.research-card p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+/* ==========================
+   Socials
+========================== */
+
+.socials{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+}
+
+.socials a{
+    font-size:2rem;
+    text-decoration:none;
     transition:.3s;
 }
 
-nav a:hover{
-    color:var(--salmon);
+.socials a:hover{
+    transform:translateY(-5px);
 }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:0 10%;
-}
+/* ==========================
+   Cookie Banner
+========================== */
 
-.hero-content{
-    max-width:900px;
-}
-
-.subtitle{
-    color:var(--green);
-    margin-bottom:20px;
-}
-
-.hero h1{
-    font-size:clamp(4rem,10vw,9rem);
-    line-height:.9;
-}
-
-.description{
-    margin-top:30px;
-    color:#ccc;
-    max-width:600px;
-}
-
-.button{
-    margin-top:40px;
-    display:inline-block;
-    padding:15px 35px;
-    background:var(--green);
-    color:black;
-    text-decoration:none;
-    border-radius:999px;
-    font-weight:bold;
-}
-
-.compass{
+#cookie-banner{
     position:fixed;
-    right:50px;
-    bottom:50px;
-    font-size:4rem;
-    animation:rotateCompass 30s linear infinite;
-}
+    bottom:20px;
+    left:20px;
+    right:20px;
+    max-width:500px;
 
-@keyframes rotateCompass{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-section{
-    padding:120px 10%;
-}
-
-h2{
-    font-size:4rem;
-    margin-bottom:40px;
-    color:var(--pink);
-}
-
-.card{
-    background:rgba(255,255,255,.03);
+    background:#111;
     border:1px solid rgba(255,255,255,.1);
+
+    padding:25px;
+
     border-radius:24px;
-    padding:40px;
+
+    z-index:9999;
 
     backdrop-filter:blur(20px);
 }
 
-.card p{
-    margin-bottom:20px;
-    line-height:1.8;
+.cookie-content h3{
+    margin-bottom:10px;
 }
 
-.project-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:40px;
+.cookie-content p{
+    margin-bottom:20px;
+    color:#ccc;
 }
 
-#contact a{
-    display:block;
-    margin-bottom:20px;
-    color:var(--salmon);
+.cookie-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.cookie-buttons button{
+    border:none;
+    padding:12px 20px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#accept{
+    background:var(--green);
+    color:#000;
+}
+
+#decline{
+    background:var(--salmon);
+    color:#000;
+}
+
+/* ==========================
+   Footer
+========================== */
+
+.footer-links{
+    margin-bottom:15px;
+}
+
+.footer-links a{
+    color:var(--green);
     text-decoration:none;
 }
 
-footer{
-    padding:40px;
-    text-align:center;
-    color:#777;
+.footer-links a:hover{
+    color:var(--salmon);
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:768px){
+
+    nav{
+        padding:20px;
+    }
+
+    nav ul{
+        gap:15px;
+        font-size:.9rem;
+    }
+
+    h2{
+        font-size:2.5rem;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .project{
+        height:380px;
+    }
+
+    .icon{
+        margin-top:90px;
+        font-size:4rem;
+    }
+
+    .project h3{
+        font-size:2rem;
+    }
+
+    .compass{
+        right:20px;
+        bottom:20px;
+        font-size:3rem;
+    }
 }
